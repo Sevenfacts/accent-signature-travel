@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accent Signature Travel | Bespoke Luxury Experiences</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;500;600&family=Montserrat:wght@200;300;400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --gold: #c9a961;
+            --dark-gold: #a68645;
+            --white: #ffffff;
+            --off-white: #fafafa;
+            --light-gray: #f5f5f5;
+            --mid-gray: #e8e8e8;
+            --text-dark: #2c2c2c;
+            --text-mid: #5a5a5a;
+            --text-light: #8a8a8a;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: var(--white);
+            color: var(--text-dark);
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 300;
+            letter-spacing: 0.05em;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: var(--white);
+            z-index: 1000;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        nav.scrolled {
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+        }
+
+        .logo img {
+            height: 60px;
+            width: auto;
+            transition: transform 0.3s ease;
+            display: block;
+        }
+
+        .logo:hover img {
+            transform: scale(1.05);
+        }
+
+        nav.scrolled .logo img {
+            height: 50px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 50px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-mid);
+            font-size: 0.85rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            font-weight: 300;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--gold);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
+                        url('https://images.unsplash.com/photo-1516426122078-c23e76319801?w=2000') center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            animation: slowZoom 20s infinite alternate;
+        }
+
+        @keyframes slowZoom {
+            from { transform: scale(1); }
+            to { transform: scale(1.1); }
+        }
+
+        .hero-content h1 {
+            font-size: 5rem;
+            margin-bottom: 10px;
+            letter-spacing: 0.15em;
+            font-weight: 300;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            letter-spacing: 0.2em;
+            font-weight: 300;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero-divider {
+            width: 100px;
+            height: 1px;
+            background: var(--gold);
+            margin: 30px auto;
+        }
+
+        .hero-content p {
+            font-size: 1rem;
+            letter-spacing: 0.25em;
+            font-weight: 300;
+            text-transform: uppercase;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 120px 0;
+        }
+
+        section h2 {
+            font-size: 3.5rem;
+            text-align: center;
+            margin-bottom: 20px;
+            color: var(--text-dark);
+            font-weight: 300;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.1rem;
+            color: var(--text-mid);
+            max-width: 700px;
+            margin: 0 auto 80px;
+            font-weight: 300;
+            line-height: 1.8;
+        }
+
+        .divider {
+            width: 80px;
+            height: 1px;
+            background: var(--gold);
+            margin: 30px auto 60px;
+        }
+
+        /* Philosophy Section */
+        .philosophy {
+            background: var(--light-gray);
+        }
+
+        .quote {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-style: italic;
+            text-align: center;
+            color: var(--text-mid);
+            max-width: 900px;
+            margin: 0 auto 80px;
+            font-weight: 300;
+            line-height: 1.6;
+        }
+
+        .pillars {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 60px;
+            margin-top: 60px;
+        }
+
+        .pillar {
+            background: var(--white);
+            padding: 60px 40px;
+            text-align: center;
+            transition: all 0.4s ease;
+            border: 1px solid var(--mid-gray);
+        }
+
+        .pillar:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+            border-color: var(--gold);
+        }
+
+        .pillar h3 {
+            font-size: 1.6rem;
+            margin-bottom: 25px;
+            color: var(--gold);
+            font-weight: 400;
+        }
+
+        .pillar p {
+            color: var(--text-mid);
+            line-height: 1.9;
+            font-weight: 300;
+        }
+
+        /* Experiences Grid */
+        .experiences-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+
+        .experience-card {
+            position: relative;
+            height: 450px;
+            overflow: hidden;
+            cursor: pointer;
+            border: 1px solid var(--mid-gray);
+            background: var(--white);
+        }
+
+        .experience-image {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .experience-card:hover .experience-image {
+            transform: scale(1.1);
+        }
+
+        .experience-content {
+            padding: 30px;
+            background: var(--white);
+        }
+
+        .experience-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--text-dark);
+            font-weight: 400;
+        }
+
+        .experience-content p {
+            color: var(--text-mid);
+            font-size: 0.95rem;
+            line-height: 1.8;
+            font-weight: 300;
+        }
+
+        /* Journeys Section */
+        .journeys {
+            background: var(--light-gray);
+        }
+
+        .journey-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 50px;
+            margin-bottom: 60px;
+        }
+
+        .journey-card {
+            background: var(--white);
+            padding: 50px;
+            border: 1px solid var(--mid-gray);
+            transition: all 0.3s ease;
+        }
+
+        .journey-card:hover {
+            border-color: var(--gold);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+
+        .journey-card h3 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color: var(--text-dark);
+            font-weight: 400;
+        }
+
+        .journey-meta {
+            color: var(--gold);
+            font-size: 0.9rem;
+            margin-bottom: 25px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .journey-card p {
+            color: var(--text-mid);
+            margin-bottom: 25px;
+            line-height: 1.9;
+            font-weight: 300;
+        }
+
+        .features {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .feature-tag {
+            background: var(--light-gray);
+            color: var(--text-mid);
+            padding: 8px 20px;
+            font-size: 0.85rem;
+            border: 1px solid var(--mid-gray);
+            font-weight: 300;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 50px;
+        }
+
+        .stat-card {
+            background: var(--white);
+            padding: 50px;
+            text-align: center;
+            border: 1px solid var(--mid-gray);
+        }
+
+        .stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            color: var(--gold);
+            margin-bottom: 15px;
+            font-weight: 300;
+        }
+
+        .stat-label {
+            color: var(--text-mid);
+            font-size: 1.1rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            font-weight: 300;
+        }
+
+        /* Testimonials */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+
+        .testimonial {
+            background: var(--light-gray);
+            padding: 50px 40px;
+            position: relative;
+            border-left: 3px solid var(--gold);
+        }
+
+        .quote-mark {
+            font-family: 'Playfair Display', serif;
+            font-size: 5rem;
+            color: var(--gold);
+            opacity: 0.3;
+            position: absolute;
+            top: 20px;
+            left: 30px;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            color: var(--text-mid);
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 1;
+            line-height: 1.9;
+            font-weight: 300;
+        }
+
+        .testimonial-author {
+            color: var(--text-dark);
+            font-weight: 400;
+            letter-spacing: 0.05em;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: var(--light-gray);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 50px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .contact-card {
+            background: var(--white);
+            padding: 60px 40px;
+            text-align: center;
+            border: 1px solid var(--mid-gray);
+            transition: all 0.3s ease;
+        }
+
+        .contact-card:hover {
+            border-color: var(--gold);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+
+        .contact-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: var(--gold);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            font-weight: 400;
+        }
+
+        .contact-card p {
+            color: var(--text-mid);
+            font-size: 1.1rem;
+            font-weight: 300;
+        }
+
+        .contact-note {
+            text-align: center;
+            margin-top: 60px;
+            color: var(--text-light);
+            font-style: italic;
+            font-weight: 300;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--text-dark);
+            color: var(--white);
+            text-align: center;
+            padding: 50px 0;
+        }
+
+        footer p {
+            letter-spacing: 0.15em;
+            font-size: 0.85rem;
+            font-weight: 300;
+            opacity: 0.8;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .pillars,
+            .experiences-grid,
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .journey-grid,
+            .stats-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-content h1 {
+                font-size: 3rem;
+            }
+
+            .hero-content h2 {
+                font-size: 1.8rem;
+            }
+
+            section h2 {
+                font-size: 2.5rem;
+            }
+
+            nav ul {
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav id="nav">
+        <div class="container">
+            <a href="https://accenttravel.ro/resources/images/LogoAccentSignature.png" class="logo">
+                <img src="https://accenttravel.ro/resources/images/Favicon_Logo_Accent_Signature.png" alt="Accent Signature Travel" class="logo">
+                <span class="logo-text">Accent signature Travel</span>
+            </a>
+            <ul>
+                <li><a href="#philosophy">Philosophy</a></li>
+                <li><a href="#experiences">Experiences</a></li>
+                <li><a href="#journeys">Journeys</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>ACCENT SIGNATURE</h1>
+            <h2>TRAVEL</h2>
+            <div class="hero-divider"></div>
+            <p>BESPOKE EXPERIENCES FOR THE DISCERNING FEW</p>
+        </div>
+    </section>
+
+    <section id="philosophy" class="philosophy">
+        <div class="container">
+            <h2>Our Philosophy</h2>
+            <div class="divider"></div>
+            <p class="quote">"True luxury is not found in what money can buy, but in experiences that transcend the extraordinary."</p>
+            
+            <div class="pillars">
+                <div class="pillar fade-in">
+                    <h3>EXCLUSIVITY</h3>
+                    <p>Access to the world's most coveted destinations and experiences, reserved for those who appreciate the extraordinary.</p>
+                </div>
+                <div class="pillar fade-in">
+                    <h3>CUSTOMIZATION</h3>
+                    <p>Every journey crafted to your unique desires, preferences, and dreams, ensuring no two experiences are alike.</p>
+                </div>
+                <div class="pillar fade-in">
+                    <h3>DISTINCTION</h3>
+                    <p>Unparalleled service and attention to detail that transforms travel into an art form of refined sophistication.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experiences">
+        <div class="container">
+            <h2>Curated Experiences</h2>
+            <div class="divider"></div>
+            <p class="section-subtitle">From the untamed savannas of Africa to the crystalline waters of the Mediterranean, we curate experiences that redefine luxury travel.</p>
+            
+            <div class="experiences-grid">
+                <div class="experience-card fade-in">
+                    <img src="https://accenttravel.ro/resources/images/Safari_private_wildlife_copy.jpeg" alt="Safari Adventure" class="experience-image">
+                    <div class="experience-content">
+                        <h3>Private Safari Expeditions</h3>
+                        <p>Witness the majesty of Africa's wildlife with exclusive access to pristine reserves and expert naturalist guides.</p>
+                    </div>
+                </div>
+
+                <div class="experience-card fade-in">
+                    <img src="https://accenttravel.ro/resources/images/Heli_beach_.jpg" alt="Helicopter Tours" class="experience-image">
+                    <div class="experience-content">
+                        <h3>Skyward Wonders</h3>
+                        <p>Soar above breathtaking landscapes in private helicopter tours revealing Earth's hidden treasures from above.</p>
+                    </div>
+                </div>
+
+                <div class="experience-card fade-in">
+                    <img src="https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?w=800" alt="Yacht Charter" class="experience-image">
+                    <div class="experience-content">
+                        <h3>Superyacht Charters</h3>
+                        <p>Navigate the world's most exclusive waters aboard meticulously appointed superyachts with dedicated crews.</p>
+                    </div>
+                </div>
+
+                <div class="experience-card fade-in">
+                    <img src="https://accenttravel.ro/resources/images/vintage_car_tours_europe.jpg" alt="Classic Cars" class="experience-image">
+                    <div class="experience-content">
+                        <h3>Heritage Journeys</h3>
+                        <p>Traverse legendary roads in vintage automobiles, from Italian grand tours to Scottish highland adventures.</p>
+                    </div>
+                </div>
+
+                <div class="experience-card fade-in">
+                    <img src="https://accenttravel.ro/resources/images/Desert_retreat_2.jpg" alt="Desert Experience" class="experience-image">
+                    <div class="experience-content">
+                        <h3>Desert Sanctuaries</h3>
+                        <p>Experience the profound serenity of world's most spectacular deserts in architecturally stunning retreats.</p>
+                    </div>
+                </div>
+
+                <div class="experience-card fade-in">
+                    <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800" alt="Culinary" class="experience-image">
+                    <div class="experience-content">
+                        <h3>Epicurean Odysseys</h3>
+                        <p>Savor exclusive dining experiences curated by Michelin-starred chefs in the world's most renowned restaurants.</p>
+                    </div>
+                </div>
+
+                <div class="experience-card fade-in">
+                    <img src="https://accenttravel.ro/resources/images/formula1_vip.jpg" alt="Formula 1 Racing" class="experience-image">
+                    <div class="experience-content">
+                        <h3>Premier Sporting Events</h3>
+                        <p>VIP access to the world's most prestigious sporting spectacles, from Formula 1 to Wimbledon Championships.</p>
+                    </div>
+                </div>
+
+                <div class="experience-card fade-in">
+                    <img src="https://images.unsplash.com/photo-1551918120-9739cb430c6d?w=800" alt="Private Villa Escapes" class="experience-image">
+                    <div class="experience-content">
+                        <h3>Elevated Villa Escapes</h3>
+                        <p>Exclusive private villas with unforgettable custom experiences, discreet staff, and white-glove service.</p>
+                    </div>
+                </div>
+
+                <div class="experience-card fade-in">
+                    <img src="https://accenttravel.ro/resources/images/Chalet_Alpes.jpeg" alt="Ski Sanctuary" class="experience-image">
+                    <div class="experience-content">
+                        <h3>Chalet Privé Experience</h3>
+                        <p>Escape to your own snow-covered sanctuary. Private spa suites, in-house chefs, ski-in/ski-out access, and full-time staff.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="journeys" class="journeys">
+        <div class="container">
+            <h2>Signature Journeys</h2>
+            <div class="divider"></div>
+            
+            <div class="journey-grid">
+                <div class="journey-card fade-in">
+                    <h3>East African Safari Odyssey</h3>
+                    <div class="journey-meta">12 Days · Kenya & Tanzania</div>
+                    <p>Experience the pinnacle of safari luxury across the Serengeti, Masai Mara, and Ngorongoro Crater with private conservancy access and exclusive mobile camps.</p>
+                    <div class="features">
+                        <span class="feature-tag">Private Game Drives</span>
+                        <span class="feature-tag">Hot Air Balloon Safari</span>
+                        <span class="feature-tag">Luxury Tented Camps</span>
+                        <span class="feature-tag">Expert Naturalists</span>
+                    </div>
+                </div>
+
+                <div class="journey-card fade-in">
+                    <h3>Mediterranean Yacht Sojourn</h3>
+                    <div class="journey-meta">10 Days · French Riviera & Italian Coast</div>
+                    <p>Cruise the azure waters from Monaco to the Amalfi Coast aboard a private superyacht, discovering hidden coves and Mediterranean elegance.</p>
+                    <div class="features">
+                        <span class="feature-tag">120ft Superyacht</span>
+                        <span class="feature-tag">Private Chef</span>
+                        <span class="feature-tag">Water Toys</span>
+                        <span class="feature-tag">Exclusive Shore Excursions</span>
+                    </div>
+                </div>
+
+                <div class="journey-card fade-in">
+                    <h3>Vintage Car Grand Tour of Europe</h3>
+                    <div class="journey-meta">14 Days · Italy, France & Switzerland</div>
+                    <p>Drive legendary European routes in meticulously restored classic automobiles, from the Amalfi Coast to Alpine passes, with expert mechanics and luxury accommodations throughout.</p>
+                    <div class="features">
+                        <span class="feature-tag">Classic Ferrari & Porsche</span>
+                        <span class="feature-tag">Scenic Mountain Routes</span>
+                        <span class="feature-tag">5-Star Heritage Hotels</span>
+                        <span class="feature-tag">Private Concierge</span>
+                    </div>
+                </div>
+
+                <div class="journey-card fade-in">
+                    <h3>Formula 1 VIP Motorsport Experience</h3>
+                    <div class="journey-meta">4 Days · Monaco or Abu Dhabi Grand Prix</div>
+                    <p>Experience Formula 1 from the paddock with exclusive access, luxury hospitality suites, pit lane walks, and meetings with racing legends at the world's most iconic circuits.</p>
+                    <div class="features">
+                        <span class="feature-tag">Paddock Club Access</span>
+                        <span class="feature-tag">Pit Lane Tours</span>
+                        <span class="feature-tag">Driver Meet & Greet</span>
+                        <span class="feature-tag">Champagne Hospitality</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card fade-in">
+                    <div class="stat-number">87%</div>
+                    <div class="stat-label">Client Return Rate</div>
+                </div>
+                <div class="stat-card fade-in">
+                    <div class="stat-number">1:3</div>
+                    <div class="stat-label">Staff-to-Guest Ratio</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials">
+        <div class="container">
+            <h2>Client Testimonials</h2>
+            <div class="divider"></div>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial fade-in">
+                    <div class="quote-mark">"</div>
+                    <p class="testimonial-text">Our East African safari exceeded every expectation. The attention to detail and exclusive access to wildlife areas created memories that will last a lifetime.</p>
+                    <p class="testimonial-author">— Sophie B., Bucharest</p>
+                </div>
+
+                <div class="testimonial fade-in">
+                    <div class="quote-mark">"</div>
+                    <p class="testimonial-text">The Mediterranean yacht charter was perfection. Every detail was anticipated, every request fulfilled before we even asked. True luxury service.</p>
+                    <p class="testimonial-author">— David & Anita C., Bucharest</p>
+                </div>
+
+                <div class="testimonial fade-in">
+                    <div class="quote-mark">"</div>
+                    <p class="testimonial-text">Accent Signature transformed our anniversary into an unforgettable celebration. Their connections and expertise are simply unmatched in the luxury travel industry.</p>
+                    <p class="testimonial-author">— Dr. Alexandru P., Cluj-Napoca</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Begin Your Journey</h2>
+            <div class="divider"></div>
+            
+            <div class="contact-grid">
+                <div class="contact-card fade-in">
+                    <h3>Schedule a Consultation</h3>
+                    <p>contact@accentsignature.ro</p>
+                </div>
+                <div class="contact-card fade-in">
+                    <h3>Inquiries</h3>
+                    <p>(+40) 722 123-456</p>
+                </div>
+            </div>
+            
+            <p class="contact-note">Consultations by appointment only</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container" style="max-width: 1200px;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 60px; margin-bottom: 50px; text-align: left;">
+                <div>
+                    <h3 style="color: var(--gold); font-size: 1.2rem; margin-bottom: 20px; font-weight: 400;">ABOUT ACCENT SIGNATURE TRAVEL</h3>
+                    <p style="line-height: 1.8; opacity: 0.9; font-size: 0.9rem; font-weight: 300;">
+                        Accent Signature Travel is affiliated with Accent Travel Group and Egencia AMEX GBT. 
+                        We are part of Accent Travel Group, one of the top Corporate Travel Management companies in Romania, 
+                        bringing decades of expertise in curating exceptional travel experiences.
+                    </p>
+                </div>
+                <div>
+                    <h3 style="color: var(--gold); font-size: 1.2rem; margin-bottom: 20px; font-weight: 400;">TRAVEL ADVISORY</h3>
+                    <p style="line-height: 1.8; opacity: 0.9; font-size: 0.9rem; font-weight: 300; margin-bottom: 15px;">
+                        For the latest travel advice from the Romanian Ministry of Foreign Affairs including security, 
+                        local laws, passport and visa information:
+                    </p>
+                    <a href="https://www.mae.ro/en" target="_blank" rel="noopener" style="color: var(--gold); text-decoration: none; font-size: 0.9rem; display: inline-block; margin-bottom: 10px; transition: opacity 0.3s ease;">
+                        → Visit MAE Travel Advice
+                    </a>
+                    <p style="line-height: 1.8; opacity: 0.8; font-size: 0.85rem; font-weight: 300;">
+                        We recommend consulting these resources before booking to make an informed decision 
+                        about your chosen destination, and again before departure.
+                    </p>
+                </div>
+                <div>
+                    <h3 style="color: var(--gold); font-size: 1.2rem; margin-bottom: 20px; font-weight: 400;">CONTACT</h3>
+                    <p style="line-height: 1.9; opacity: 0.9; font-size: 0.9rem; font-weight: 300;">
+                        <strong style="color: var(--gold);">Email:</strong><br>
+                        contact@accentsignature.ro
+                    </p>
+                    <p style="line-height: 1.9; opacity: 0.9; font-size: 0.9rem; font-weight: 300; margin-top: 15px;">
+                        <strong style="color: var(--gold);">Phone:</strong><br>
+                        (+40) 722 123-456
+                    </p>
+                    <p style="line-height: 1.9; opacity: 0.8; font-size: 0.85rem; font-weight: 300; margin-top: 15px; font-style: italic;">
+                        Consultations by appointment only
+                    </p>
+                </div>
+            </div>
+            
+            <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 30px; text-align: center;">
+                <p style="letter-spacing: 0.15em; font-size: 0.85rem; font-weight: 300; opacity: 0.8;">
+                    © 2026 ACCENT SIGNATURE TRAVEL. WE DESIGN EXPERIENCES THAT MONEY ALONE CANNOT BUY.
+                </p>
+                <p style="margin-top: 15px; font-size: 0.8rem; opacity: 0.7; font-weight: 300;">
+                    Affiliated with Accent Travel Group | Egencia AMEX GBT
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Navigation scroll effect
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('nav');
+            if (window.scrollY > 100) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
